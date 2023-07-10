@@ -1,15 +1,17 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT||4000;
-const connection = require("./src/config/connectionDb")
-app.get("/home",(req,res)=>{
-    res.send("home");
-})
+const PORT = process.env.PORT;
+// const connection = require("./src/config/connectionDb");
+const router = require("./src/routes")
+
+app.use(express.json());
+app.use(router);
 
 const start = () =>{
     try {
         app.listen(PORT,()=>{
-            console.log("localhost");
+            console.log(`I am live in localhost : ${PORT}`);
         })
     } catch (error) {
         console.log(error);
