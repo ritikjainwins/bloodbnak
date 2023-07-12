@@ -2,7 +2,6 @@ require('dotenv').config()
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT;
-// const connection = require("./src/config/connectionDb");
 const router = require("./src/routes")
 
 app.use(express.json());
